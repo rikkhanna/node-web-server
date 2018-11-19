@@ -2,7 +2,7 @@ const express = require('express');
 const hbs   =   require('hbs');
 const fs    =   require('fs');
 const app = express();
-
+const port = process.env.PORT || 3000;
 app.set("view engine",'hbs');
 /* creating a middleware for express to read static directory public */
 app.use(express.static(__dirname + '/public'));
@@ -56,6 +56,6 @@ app.get('/bad',(req,res)=>{
 });
 /* end here*/ 
 /* binding handler to port 3000 */
-app.listen(3000,()=>{
-    console.log('Starting at port 3000');
+app.listen(port ,()=>{
+    console.log(`Starting at port ${port}`);
 });
